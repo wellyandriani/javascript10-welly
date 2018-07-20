@@ -198,6 +198,26 @@ const multipleByThree =  (result) => {
     return Promise.resolve (result * 3)
  }
 
-numberValidation(3).then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => console.log(res)).catch(err => console.log(err))
-numberValidation(2).then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => console.log(res)).catch(err => console.log(err))
-numberValidation("").then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => console.log(res)).catch(err => console.log(err))
+// console.log("before promise");
+// numberValidation(2).then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => console.log(res)).catch(err => console.log(err))
+// console.log("after promise");
+
+// Level 4
+// let finalresult = numberValidation(2).then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => console.log(res)).catch(err => console.log(err))
+
+// async function asyncfinal(){
+//     await console.log ("before promise");
+//     await finalresult
+//     await console.log("after promise");
+// }
+// asyncfinal()
+
+//level 5
+let result = numberValidation(2).then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => {return res}).catch(err => {return err})
+
+
+async function asyncresult(){
+    let result = await numberValidation(2).then(multipleByTwo).then(multipleByTwo).then(multipleByThree).then(res => {return res}).catch(err => {return err})
+    console.log(result);
+}
+asyncresult()
