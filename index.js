@@ -41,4 +41,36 @@ myFirstPromise
     })
     .catch(error => console.log(".catch >>>" + error.message));
 
-    
+    //my Promise
+
+    const itisme = false;
+
+    const getnewcar = new Promise ((resolve, reject)=>{
+        if(itisme){
+            const car = {
+                brand: "ferarri",
+                color: "pink"
+            };
+            resolve(car);
+                }else{
+                    const reason = new Error("this is not me");
+                    reject(reason);
+                }
+    });
+
+    const showOff =function(car){
+        const message = "Hey friend, I have a new" + car.color + " " + "car";
+        return Promise.resolve(message);
+    };
+
+    const askme = function() {
+        getnewcar
+        .then(showOff)
+        .then(fulfilled => console.log(fulfilled)
+        )
+
+        .catch(error => console.log(error.message)
+        );
+    };
+    askme();
+
